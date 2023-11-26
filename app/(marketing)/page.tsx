@@ -46,25 +46,6 @@ const MarketingPage = () => {
           </div>
         </div>
 
-        <Image
-          className="md:block hidden object-contain"
-          width={100}
-          height={100}
-          sizes="100vw"
-          src="/bannerimage.svg"
-          alt="medalimage"
-          style={{ width: "30%", height: "30%" }}
-        />
-
-        <Image
-          className="md:hidden"
-          width={100}
-          height={100}
-          sizes="100vw"
-          src="/bannerimage.svg"
-          alt="medalimage"
-          style={{ width: "80%", height: "80%" }}
-        />
         <p className={cn("text-xs text-center max-w-md text-neutral-400")}>
           Revolutionize your productivity with our intuitive task manager
           website, designed to streamline and organize your daily tasks

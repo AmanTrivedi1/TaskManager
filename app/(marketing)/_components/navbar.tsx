@@ -6,8 +6,8 @@ export const Navbar = () => {
   return (
     <>
       <div
-        className="fixed top-0 w-full h-14 
-      border-b border-b-brown bg-dark shadow-sm flex items-center"
+        className="fixed top-0 pt-10 w-full h-14 
+      flex items-center"
       >
         <div className="md:max-w-screen-xl mx-auto flex items-center w-full justify-between">
           <Logo />
