@@ -61,7 +61,9 @@ const MarketingPage = () => {
           size="lg"
           asChild
         >
-          <Link href="/">Get it for free</Link>
+          <Link className="bg-gradient-to-br from-red-600 to-red-800" href="/">
+            Get it for free
+          </Link>
         </Button>
       </div>
     </>

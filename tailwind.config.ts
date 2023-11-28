@@ -16,6 +16,9 @@ module.exports = {
       },
     },
     extend: {
+      gradientColorStopPositions: {
+        gra: "",
+      },
       colors: {
         dark: "#171717",
         brown: "#444444",
