@@ -1,27 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-
+import { MobileSidebar } from "./mobile-sidebar";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 
 export const Navbar = () => {
   return (
     <>
       <div className="md:max-w-screen-xl  pb-4 border-brown border-b mt-4 mx-auto flex items-center w-full justify-between">
-        <div className="">
-          <Button
-            size="sm"
-            variant="primary"
-            className=" xl:ml-0 ml-2 rounded-sm hidden md:block  hover:opacity-90"
-          >
-            Create
-          </Button>
-          <Button
-            variant="primary"
-            size="sm"
-            className="  lg:ml-0 ml-2 rounded-sm block md:hidden"
-          >
-            <Plus className="h-4  w-4" />
-          </Button>
+        <div className="flex items-start">
+          <MobileSidebar />
+          <div className="">
+            <Button
+              size="sm"
+              variant="primary"
+              className=" xl:ml-0 ml-2 rounded-sm hidden md:block  hover:opacity-90"
+            >
+              Create
+            </Button>
+            <Button
+              size="sm"
+              className=" hover:bg-brown hover:text-neutral-400  lg:ml-0 ml-2 rounded-sm block md:hidden"
+            >
+              <Plus className="h-4  w-4" />
+            </Button>
+          </div>
         </div>
         <div className="flex items-center gap-x-1 xl:ml-0 mr-2">
           <OrganizationSwitcher

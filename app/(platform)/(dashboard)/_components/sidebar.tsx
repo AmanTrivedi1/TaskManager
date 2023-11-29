@@ -66,14 +66,13 @@ export const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
 
   return (
     <>
-      <div className="font-medium text-xs flex items-center mb-1">
-        <span className="pl-4">Workspaces</span>
+      <div className="font-medium bg-dark text-xs flex items-center mb-1">
+        <span className="pl-4 ">Workspaces</span>
         <Button
           asChild
           type="button"
           size="icon"
-          variant="primary"
-          className="ml-auto"
+          className="ml-auto bg-white/90 text-brown hover:bg-white/60"
         >
           <Link href="/select-org">
             <Plus className="h-4 w-4" />
@@ -83,7 +82,7 @@ export const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
       <Accordion
         type="multiple"
         defaultValue={defaultAccordionValue}
-        className="space-y-2"
+        className="space-y-2 bg-dark"
       >
         {userMemberships.data.map(({ organization }) => (
           <NavItem
