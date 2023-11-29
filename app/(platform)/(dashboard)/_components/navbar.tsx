@@ -1,24 +1,56 @@
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-import Logo from "../../../../components/logo";
+
+import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 
 export const Navbar = () => {
   return (
     <>
-      <div className="fixed z-50  top-0 w-full h-14  shadow-sm bg-dark flex items-center">
-        <div className="flex items-center gap-x-4 ">
-          <div className="hidden md:flex">
-            <h1 className="text-xl font-bold">TaskManager</h1>
-          </div>
+      <div className="md:max-w-screen-xl  pb-4 border-brown border-b mt-4 mx-auto flex items-center w-full justify-between">
+        <div className="">
           <Button
             size="sm"
-            className="bg-dark_red rounded-sm hidden md:block hover:bg-dark_red hover:opacity-90"
+            variant="primary"
+            className=" xl:ml-0 ml-2 rounded-sm hidden md:block  hover:opacity-90"
           >
             Create
           </Button>
-          <Button size="sm" className="rounded-sm block md:hidden">
+          <Button
+            variant="primary"
+            size="sm"
+            className="  lg:ml-0 ml-2 rounded-sm block md:hidden"
+          >
             <Plus className="h-4  w-4" />
           </Button>
+        </div>
+        <div className="flex items-center gap-x-1 xl:ml-0 mr-2">
+          <OrganizationSwitcher
+            hidePersonal
+            afterCreateOrganizationUrl="/organization/:id"
+            afterLeaveOrganizationUrl="/select-org"
+            afterSelectOrganizationUrl="/organization/:id"
+            appearance={{
+              elements: {
+                rootBpx: {
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "white",
+                },
+              },
+            }}
+          />
+          <UserButton
+            afterSignOutUrl="/"
+            appearance={{
+              elements: {
+                avatarBox: {
+                  height: 40,
+                  width: 40,
+                },
+              },
+            }}
+          />
         </div>
       </div>
     </>
