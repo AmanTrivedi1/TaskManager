@@ -6,7 +6,7 @@ import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 export const Navbar = () => {
   return (
     <>
-      <div className="md:max-w-screen-xl  pb-4 border-brown border-b mt-4 mx-auto flex items-center w-full justify-between">
+      <div className="md:max-w-screen-xl  pb-2 border-brown border-b mt-4 mx-auto flex items-center w-full justify-between">
         <div className="flex items-start">
           <MobileSidebar />
           <div className="">
@@ -25,7 +25,7 @@ export const Navbar = () => {
             </Button>
           </div>
         </div>
-        <div className="flex items-center gap-x-1 xl:ml-0 mr-2">
+        <div className="flex items-center justify-center bg-white px-1  py-1 rounded-lg gap-x-1 xl:ml-0 mr-2">
           <OrganizationSwitcher
             hidePersonal
             afterCreateOrganizationUrl="/organization/:id"
@@ -47,8 +47,8 @@ export const Navbar = () => {
             appearance={{
               elements: {
                 avatarBox: {
-                  height: 40,
-                  width: 40,
+                  height: 30,
+                  width: 30,
                 },
               },
             }}
