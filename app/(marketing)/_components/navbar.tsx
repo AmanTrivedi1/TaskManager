@@ -16,7 +16,7 @@ export const Navbar = () => {
           <Button
             asChild
             size="sm"
-            className="border-neutral-400 text-neutral-400 border px-4  mr-4 sm:mr-20"
+            className="  bg-gradient-to-br from-[#16E370] to-[#096BDE]  text-white px-4  mr-4 sm:mr-20"
           >
             <Link href="/sign-up">Login</Link>
           </Button>

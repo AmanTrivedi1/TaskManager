@@ -16,8 +16,8 @@ module.exports = {
       },
     },
     extend: {
-      gradientColorStopPositions: {
-        gra: "",
+      backgroundImage: {
+        heropattern: "url(/bg2.webp)",
       },
       colors: {
         dark: "#171717",

@@ -18,53 +18,58 @@ const textFont = Poppins({
 const MarketingPage = () => {
   return (
     <>
-      <div className="flex items-center justify-center flex-col">
-        <div
-          className={cn(
-            "flex items-center justify-center flex-col",
-            headingFont.className
-          )}
-        >
-          <div className="mb-4 gap-x-2 text-brown border-brown rounded-full uppercase flex items-center border shadow-sm px-4 py-2 ">
-            <Image
-              width={20}
-              height={20}
-              sizes="100vw"
-              src="/medal.svg"
-              alt="medalimage"
-            />
-            <h1>Manage all your task</h1>
-          </div>
-          <h1 className="text-4xl md:text-5xl text-center text-lime-50">
-            I will help you to manage your task
-          </h1>
+      <div className="    ">
+        <div className="flex   items-center justify-center flex-col">
           <div
-            className="md:text-5xl text-4xl p-4 text-center font-bold text-dark_red
-            "
+            className={cn(
+              "flex items-center justify-center flex-col",
+              headingFont.className
+            )}
           >
-            Work Forward
+            <div className="mb-4 gap-x-2 text-neutral-300 border-neutral-400 rounded-full uppercase flex items-center border shadow-sm px-4 py-2 ">
+              <Image
+                width={20}
+                height={20}
+                sizes="100vw"
+                src="/medal.svg"
+                alt="medalimage"
+              />
+              <h1>Manage all your task</h1>
+            </div>
+            <h1 className="text-4xl md:text-5xl text-center text-lime-50">
+              I will help you to manage your task
+            </h1>
+            <div
+              className="md:text-5xl text-4xl p-4 text-center font-bold text-dark_red
+            "
+            >
+              Work Forward
+            </div>
           </div>
-        </div>
 
-        <p className={cn("text-xs text-center max-w-md text-neutral-400")}>
-          Revolutionize your productivity with our intuitive task manager
-          website, designed to streamline and organize your daily tasks
-          effortlessly. Stay on top of your goals and deadlines with our
-          user-friendly interface, making task management a breeze
-        </p>
-        <Button
-          className={cn(
-            "mt-6 bg-dark_red hover:bg-dark_red/90  ",
-            textFont.className
-          )}
-          variant="default"
-          size="lg"
-          asChild
-        >
-          <Link className="bg-gradient-to-br from-red-600 to-red-800" href="/">
-            Get it for free
-          </Link>
-        </Button>
+          <p className={cn("text-xs text-center max-w-md text-neutral-100")}>
+            Revolutionize your productivity with our intuitive task manager
+            website, designed to streamline and organize your daily tasks
+            effortlessly. Stay on top of your goals and deadlines with our
+            user-friendly interface, making task management a breeze
+          </p>
+          <Button
+            className={cn(
+              "mt-6 bg-dark_red hover:bg-dark_red/90  ",
+              textFont.className
+            )}
+            variant="default"
+            size="lg"
+            asChild
+          >
+            <Link
+              className="bg-gradient-to-br from-[#16E370] to-[#096BDE]"
+              href="/"
+            >
+              Get it for free
+            </Link>
+          </Button>
+        </div>
       </div>
     </>
   );

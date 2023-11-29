@@ -69,7 +69,9 @@ export const NavItem = ({
         onClick={() => onExpand(organization.id)}
         className={cn(
           "flex items-center gap-x-2 p-1.5  rounded-md hover:text-brown hover:bg-white/90 transition text-start no-underline hover:no-underline",
-          isActive && !isExpanded && "bg-white/90 text-brown"
+          isActive &&
+            !isExpanded &&
+            "bg-white/90 hover:shadow-dark_red/90 text-brown"
         )}
       >
         <div className="flex items-center gap-x-2">
