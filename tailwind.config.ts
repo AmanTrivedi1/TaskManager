@@ -17,7 +17,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        heropattern: "url(/bg2.webp)",
+        deskstop: "url(/bg2.webp)",
+        mobile: "url(/mobilebg.webp)",
       },
       colors: {
         dark: "#171717",
