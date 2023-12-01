@@ -19,6 +19,8 @@ module.exports = {
       backgroundImage: {
         deskstop: "url(/bg2.webp)",
         mobile: "url(/mobilebg.webp)",
+        card1: "url(/card1.png)",
+        card2: "url(/card2.png)",
       },
       colors: {
         dark: "#171717",
