@@ -3,7 +3,7 @@ import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { HelpCircle, User2 } from "lucide-react";
 
-// import { db } from "@/lib/db";
+import { db } from "@/lib/db";
 // import { Hint } from "@/components/hint";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Hint } from "@/components/hint";
@@ -20,14 +20,14 @@ export const BoardList = async () => {
     return redirect("/select-org");
   }
 
-  //   const boards = await db.board.findMany({
-  //     where: {
-  //       orgId,
-  //     },
-  //     orderBy: {
-  //       createdAt: "desc",
-  //     },
-  //   });
+  const boards = await db.board.findMany({
+    where: {
+      orgId,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
 
   //   const availableCount = await getAvailableCount();
   //   const isPro = await checkSubscription();
@@ -39,11 +39,11 @@ export const BoardList = async () => {
         Your boards
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-        {/* {boards.map((board) => (
+        {boards.map((board) => (
           <Link
             key={board.id}
             href={`/board/${board.id}`}
-            className="group relative aspect-video bg-no-repeat bg-center bg-cover bg-sky-700 rounded-sm h-full w-full p-2 overflow-hidden"
+            className="group relative aspect-video bg-no-repeat bg-center bg-cover bg-brown rounded-sm h-full w-full p-2 overflow-hidden"
             style={{ backgroundImage: `url(${board.imageThumbUrl})` }}
           >
             <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition" />
@@ -56,11 +56,11 @@ export const BoardList = async () => {
             className="aspect-video relative h-full w-full bg-muted rounded-sm flex flex-col gap-y-1 items-center justify-center hover:opacity-75 transition"
           >
             <p className="text-sm">Create new board</p>
-            <span className="text-xs">
+            {/* <span className="text-xs">
               {isPro
                 ? "Unlimited"
                 : `${MAX_FREE_BOARDS - availableCount} remaining`}
-            </span>
+            </span> */}
             <Hint
               sideOffset={40}
               description={`
@@ -70,7 +70,7 @@ export const BoardList = async () => {
               <HelpCircle className="absolute bottom-2 right-2 h-[14px] w-[14px]" />
             </Hint>
           </div>
-        </FormPopover> */}
+        </FormPopover>
         <FormPopover sideOffset={10} side="right">
           <div className=" cursor-pointer  aspect-video relative h-full  w-full bg-dark rounded-sm flex flex-col gap-y-1 items-center justify-center hover:opacity-75 transition ">
             <p className="text-sm ">Create New Board</p>
@@ -93,14 +93,14 @@ export const BoardList = async () => {
 BoardList.Skeleton = function SkeletonBoardList() {
   return (
     <div className="grid gird-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-      <Skeleton className="aspect-video h-full w-full p-2" />
-      <Skeleton className="aspect-video h-full w-full p-2" />
-      <Skeleton className="aspect-video h-full w-full p-2" />
-      <Skeleton className="aspect-video h-full w-full p-2" />
-      <Skeleton className="aspect-video h-full w-full p-2" />
-      <Skeleton className="aspect-video h-full w-full p-2" />
-      <Skeleton className="aspect-video h-full w-full p-2" />
-      <Skeleton className="aspect-video h-full w-full p-2" />
+      <Skeleton className="aspect-video bg-brown h-full w-full p-2" />
+      <Skeleton className="aspect-video bg-brown h-full w-full p-2" />
+      <Skeleton className="aspect-video bg-brown h-full w-full p-2" />
+      <Skeleton className="aspect-video bg-brown h-full w-full p-2" />
+      <Skeleton className="aspect-video bg-brown h-full w-full p-2" />
+      <Skeleton className="aspect-video bg-brown h-full w-full p-2" />
+      <Skeleton className="aspect-video bg-brown h-full w-full p-2" />
+      <Skeleton className="aspect-video bg-brown h-full w-full p-2" />
     </div>
   );
 };
