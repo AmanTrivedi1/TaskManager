@@ -2,17 +2,14 @@
 
 import { auth } from "@clerk/nextjs";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 
 import { db } from "@/lib/db";
 import { createSafeAction } from "@/lib/create-safe-action";
 
-import { DeleteBoard } from "./schema";
+import { DeleteCard } from "./schema";
 import { InputType, ReturnType } from "./types";
 import { createAuditLog } from "@/lib/create-audit-log";
 import { ACTION, ENTITY_TYPE } from "@prisma/client";
-// import { decreaseAvailableCount } from "@/lib/org-limit";
-// import { checkSubscription } from "@/lib/subscription";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId, orgId } = auth();
@@ -23,27 +20,25 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     };
   }
 
-  //   const isPro = await checkSubscription();
-
-  const { id } = data;
-  let board;
+  const { id, boardId } = data;
+  let card;
 
   try {
-    board = await db.board.delete({
+    card = await db.card.delete({
       where: {
         id,
-        orgId,
+        list: {
+          board: {
+            orgId,
+          },
+        },
       },
     });
 
-    // if (!isPro) {
-    //   await decreaseAvailableCount();
-    // }
-
     await createAuditLog({
-      entityTitle: board.title,
-      entityId: board.id,
-      entityType: ENTITY_TYPE.BOARD,
+      entityTitle: card.title,
+      entityId: card.id,
+      entityType: ENTITY_TYPE.CARD,
       action: ACTION.DELETE,
     })
   } catch (error) {
@@ -52,8 +47,8 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     };
   }
 
-  revalidatePath(`/organization/${orgId}`);
-  redirect(`/organization/${orgId}`);
+  revalidatePath(`/board/${boardId}`);
+  return { data: card };
 };
 
-export const deleteBoard = createSafeAction(DeleteBoard, handler);
+export const deleteCard = createSafeAction(DeleteCard, handler);

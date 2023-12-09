@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import { HelpCircle, User2 } from "lucide-react";
+import { HelpCircle, Plus, User2, X } from "lucide-react";
 
 import { db } from "@/lib/db";
 // import { Hint } from "@/components/hint";
@@ -53,7 +53,7 @@ export const BoardList = async () => {
         <FormPopover sideOffset={10} side="right">
           <div
             role="button"
-            className="aspect-video relative h-full w-full bg-muted rounded-sm flex flex-col gap-y-1 items-center justify-center hover:opacity-75 transition"
+            className="aspect-video relative h-full w-full border border-brown bg-blur-sm bg-transparent rounded-sm flex flex-col gap-y-1 items-center justify-center hover:opacity-75 transition"
           >
             <p className="text-sm">Create new board</p>
             {/* <span className="text-xs">
@@ -61,17 +61,18 @@ export const BoardList = async () => {
                 ? "Unlimited"
                 : `${MAX_FREE_BOARDS - availableCount} remaining`}
             </span> */}
+            <Plus />
             <Hint
               sideOffset={40}
               description={`
-                Free Workspaces can have up to 5 open boards. For unlimited boards upgrade this workspace.
+             This is a free webapp for now , in future may be paid with 99/months only
               `}
             >
               <HelpCircle className="absolute bottom-2 right-2 h-[14px] w-[14px]" />
             </Hint>
           </div>
         </FormPopover>
-        <FormPopover sideOffset={10} side="right">
+        {/* <FormPopover sideOffset={10} side="right">
           <div className=" cursor-pointer  aspect-video relative h-full  w-full bg-dark rounded-sm flex flex-col gap-y-1 items-center justify-center hover:opacity-75 transition ">
             <p className="text-sm ">Create New Board</p>
             <span className="">5 Remaining</span>
@@ -84,7 +85,7 @@ export const BoardList = async () => {
               <HelpCircle className="absolute bottom-2 right-2 h-[14px] w-[14px]" />
             </Hint>
           </div>
-        </FormPopover>
+        </FormPopover> */}
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   let lists;
 
   try {
-    const transaction = items.map((list) => 
+    const transaction = items.map((list) =>
       db.list.update({
         where: {
           id: list.id,
@@ -39,8 +39,8 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     lists = await db.$transaction(transaction);
   } catch (error) {
     return {
-      error: "Failed to reorder."
-    }
+      error: "Failed to reorder.",
+    };
   }
 
   revalidatePath(`/board/${boardId}`);
