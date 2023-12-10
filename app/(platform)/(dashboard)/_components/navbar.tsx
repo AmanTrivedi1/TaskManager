@@ -31,7 +31,7 @@ export const Navbar = () => {
             </FormPopover>
           </div>
         </div>
-        <div className="flex items-center justify-center shadow-sm  shadow-dark_red/90 px-1    rounded-lg gap-x-1 xl:ml-0 mr-2">
+        <div className="flex items-center justify-center shadow-sm  ">
           <OrganizationSwitcher
             hidePersonal
             afterCreateOrganizationUrl="/organization/:id"
